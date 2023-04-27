@@ -59,7 +59,7 @@ export function MainScreen () {
 
   return (
     <ScreenWrapper>
-      {!isLoading
+      {isLoading
         ? <div style={{ marginTop: '30%' }}>
             <MoonLoader size={100} color={colors.blue} />
           </div>
