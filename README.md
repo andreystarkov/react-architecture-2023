@@ -4,6 +4,8 @@
 
 ## Lightweight, friendly and minimalistic react enviroment
 
+Auto deploying [here](https://main--animated-cascaron-49bfd7.netlify.app/)
+
 - Absolute imports
 - Exports everywhere
 - Awesome
