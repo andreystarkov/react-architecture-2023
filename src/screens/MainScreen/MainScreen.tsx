@@ -10,9 +10,25 @@ import { ErrorCard } from 'ui'
 import { TabWrapper, TabLink, Avatar, SearchInput, UserName,
   UserCard, CardsWrapper, SearchWrapper, SearchIcon } from './MainScreenStyles'
 
-
 const NAME_MAX_LENGTH = 11
 const MAX_ITEMS_PER_PAGE = 8
+
+type SearchType = {
+  search: string;
+  data: UserType[];
+}
+
+
+const searchFilter = ({ search, data }: SearchType): UserType[] => {
+  return data?.filter(f => {
+    const text = f.name.toLowerCase()
+    const entryIncludanceCheck = (textEntry: string) => !!text.includes(textEntry.toLowerCase())
+    const hasMultipleEntries = search.includes(' ')
+    return hasMultipleEntries
+      ? search.split(' ').every(entryIncludanceCheck)
+      : text.includes(search.toLowerCase())
+  })
+}
 
 export function MainScreen () {
   const navigate = useNavigate()
@@ -31,8 +47,7 @@ export function MainScreen () {
   const currentPageLimit = currentPage * MAX_ITEMS_PER_PAGE
   const pagesCount = Math.round(users?.length / MAX_ITEMS_PER_PAGE)
 
-  const filterSearch = (f: UserType) =>
-    f.name.toLowerCase().includes(search.toLowerCase())
+  const usersData = search.length ? searchFilter({ search, data: users }) : users
 
   const filterPage = (f: UserType, index: number) =>
     search.length === 0
@@ -62,7 +77,7 @@ export function MainScreen () {
   return (
     <ScreenWrapper>
       {isError ? <ErrorCard /> : isLoading
-        ? <div style={{ marginTop: '30%' }}>
+        ? <div style={{ marginTop: '25%' }}>
             <MoonLoader size={120} color={colors.blue} />
           </div>
         : <>
@@ -75,7 +90,7 @@ export function MainScreen () {
               value={search} />
           </SearchWrapper>
           <CardsWrapper>
-            {users?.filter(filterSearch).filter(filterPage).map(renderUsers)}
+            {usersData?.filter(filterPage).map(renderUsers)}
           </CardsWrapper>
           <TabWrapper>
               {search.length === 0 ? [...Array(pagesCount)].map(renderPageButton) : null}

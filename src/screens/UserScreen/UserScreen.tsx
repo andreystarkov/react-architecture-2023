@@ -16,7 +16,7 @@ export function UserScreen () {
   return (
     <UserScreenWrapper>
       {isError ? <ErrorCard /> : isLoading
-        ? <div style={{ marginTop: '30%' }}>
+        ? <div style={{ marginTop: '25%' }}>
             <MoonLoader size={120} color={colors.blue} />
           </div>
         : <>
