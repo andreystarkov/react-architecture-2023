@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CircleLoader } from 'react-spinners'
+import { MoonLoader } from 'react-spinners'
 
 import { colors, icons } from 'theme'
 import { ScreenWrapper } from 'layout'
@@ -59,8 +59,10 @@ export function MainScreen () {
 
   return (
     <ScreenWrapper>
-      {isLoading
-        ? <CircleLoader size={20} color={colors.blue} />
+      {!isLoading
+        ? <div style={{ marginTop: '30%' }}>
+            <MoonLoader size={100} color={colors.blue} />
+          </div>
         : <>
           <SearchWrapper>
             <SearchIcon className='search-icon' src={icons.search} alt='Search' />
