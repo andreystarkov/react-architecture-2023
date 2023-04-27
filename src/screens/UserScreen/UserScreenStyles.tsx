@@ -34,7 +34,7 @@ export const Avatar = styled.img`
 `
 
 export const UserName = styled.h1`
-  font-size: ${rem('20px')};
+  font-size: ${rem('25px')};
   margin-bottom: ${rem('10px')};
   font-weight: 800;
   text-align: center;
@@ -43,8 +43,8 @@ export const UserName = styled.h1`
 `
 
 export const UserDescription = styled.p`
-  font-size: ${rem('16px')};
-  margin-top: ${rem('10px')};
+  font-size: ${rem('18px')};
+  margin-top: ${rem('25px')};
   font-weight: 400;
   font-style: italic;
   text-align: left;

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { rem } from 'polished'
+import { colors } from 'theme'
 
 export const ScreenWrapper = styled.div`
   display: flex;

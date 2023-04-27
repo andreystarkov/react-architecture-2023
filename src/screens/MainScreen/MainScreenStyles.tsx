@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { rem } from 'polished'
-import { fonts, colors } from 'theme'
+import { fonts, colors, media } from 'theme'
 
 type TabType = {
   active?: boolean | undefined;
@@ -11,12 +11,15 @@ type TabType = {
 
 export const SearchIcon = styled.img`
   position: absolute;
-  top: ${rem('13px')};
+  top: ${rem('9px')};
   left: ${rem('15px')};
   width: ${rem('20px')};
   height: ${rem('20px')};
   opacity: 0.2;
   transition: 1s linear all;
+  ${media.sm`
+    margin-left: ${rem('12px')};
+  `}
 `
 
 export const SearchWrapper = styled.div`
@@ -35,16 +38,28 @@ export const SearchInput = styled.input`
   border: none;
   background-color: ${colors.white};
   border-radius: ${rem('10px')};
-  padding: 10px 43px;
+  padding: ${rem('10px')} ${rem('43px')};
   color: ${colors.black};
   font-weight: 600;
   font-size: ${rem('16px')};
+  ::placeholder {
+    color: rgba(0,0,0,0.3);
+    transition: 1s linear all;
+  }
+  &:hover {
+    ::placeholder {
+      color: rgba(0,0,0,0.8);
+    }
+  }
+  ${media.sm`
+    margin-left: ${rem('10px')};
+  `}
 `
 
 export const Avatar = styled.img`
   border-radius: 50%;
   margin-top: ${rem('10px')};
-  margin-bottom: ${rem('10px')}''
+  margin-bottom: ${rem('10px')};
 `
 
 export const CardsWrapper = styled.div`
@@ -59,14 +74,14 @@ export const UserCard = styled.div`
   display: flex;
   position: relative;
   width: ${rem('210px')};
-  height: ${rem('230px')};
+  height: ${rem('210px')};
   border-radius: ${rem('30px')};
   flex-direction: column;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   background-color: ${colors.white};
-  padding: ${rem('36px')};
+  padding: ${rem('10px')} ${rem('36px')};
   box-shadow: 0 ${rem('12px')} ${rem('24px')} 0 rgba(10, 7, 27, 0.05);
   margin: ${rem('10px')};
   cursor: pointer;
@@ -114,4 +129,18 @@ export const TabLink = styled.span<TabType>`
     background-color: ${colors.blue};
     color: ${colors.white};
   ` : null}
+`
+
+export const LeftCol = styled.div`
+  width: 40%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const RightCol = styled.div`
+  width: 60%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `

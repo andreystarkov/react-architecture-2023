@@ -7,6 +7,6 @@ export const RootWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${colors.background};
+  background-color: ${colors.background} !important;
   padding-bottom: 30px;
 `
