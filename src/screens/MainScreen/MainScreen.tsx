@@ -29,9 +29,13 @@ export function MainScreen () {
   const currentPageLimit = currentPage * MAX_ITEMS_PER_PAGE
   const pagesCount = Math.round(users?.length / MAX_ITEMS_PER_PAGE)
 
-  const filterSearch = (f: UserType) => f.name.toLowerCase().includes(search.toLowerCase())
+  const filterSearch = (f: UserType) =>
+    f.name.toLowerCase().includes(search.toLowerCase())
+
   const filterPage = (f: UserType, index: number) =>
-    search.length === 0 ? index >= currentPageLimit && index <= currentPageLimit + MAX_ITEMS_PER_PAGE - 1 : true
+    search.length === 0
+      ? index >= currentPageLimit && index <= currentPageLimit + MAX_ITEMS_PER_PAGE - 1
+      : true
 
   const renderUsers = (user: UserType) => {
     return (
