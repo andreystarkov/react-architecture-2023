@@ -29,7 +29,3 @@
 ```bash
   yarn build
 ```
-
-TODO
-
-- [] Fix eslint
