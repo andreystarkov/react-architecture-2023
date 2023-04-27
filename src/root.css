@@ -10,8 +10,3 @@ html {
 *:after {
   box-sizing: inherit;
 }
-
-#root {
-  background-color: #EFF2F8 !important;
-  background: #EFF2F8 !important;
-}

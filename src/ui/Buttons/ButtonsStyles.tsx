@@ -16,6 +16,8 @@ export const ButtonComponent = styled.button`
   cursor: pointer;
   justify-content: center;
   transition: 0.4s ease-in-out all;
+  outline: 0;
+  border: 0;
   color: #fff;
   &:hover {
     opacity: 0.666;

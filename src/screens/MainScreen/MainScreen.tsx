@@ -5,8 +5,10 @@ import { MoonLoader } from 'react-spinners'
 import { colors, icons } from 'theme'
 import { ScreenWrapper } from 'layout'
 import { useGetAllUsersQuery, UserType } from 'stores'
+import { ErrorCard } from 'ui'
 
-import { TabWrapper, TabLink, Avatar, SearchInput, UserName, UserCard, CardsWrapper, SearchWrapper, SearchIcon } from './MainScreenStyles'
+import { TabWrapper, TabLink, Avatar, SearchInput, UserName,
+  UserCard, CardsWrapper, SearchWrapper, SearchIcon } from './MainScreenStyles'
 
 
 const NAME_MAX_LENGTH = 11
@@ -15,7 +17,7 @@ const MAX_ITEMS_PER_PAGE = 8
 export function MainScreen () {
   const navigate = useNavigate()
 	const response = useGetAllUsersQuery()
-  const { isLoading, data } = response
+  const { isLoading, isError, data } = response
   const [users, setUsers] = useState<UserType[]>([]);
   const [search, setSearch] = useState<string>('')
   const [currentPage, setCurrentPage] = useState<number>(1)
@@ -59,9 +61,9 @@ export function MainScreen () {
 
   return (
     <ScreenWrapper>
-      {isLoading
+      {isError ? <ErrorCard /> : isLoading
         ? <div style={{ marginTop: '30%' }}>
-            <MoonLoader size={100} color={colors.blue} />
+            <MoonLoader size={120} color={colors.blue} />
           </div>
         : <>
           <SearchWrapper>
