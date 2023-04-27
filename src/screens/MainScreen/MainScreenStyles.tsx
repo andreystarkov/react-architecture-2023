@@ -38,7 +38,7 @@ export const SearchInput = styled.input`
   background-color: ${colors.white};
   border-radius: ${rem('10px')};
   padding: ${rem('10px')} ${rem('43px')};
-  color: ${colors.black};
+  color: ${colors.text1};
   font-weight: 600;
   font-size: ${rem('16px')};
   ::placeholder {
@@ -97,7 +97,7 @@ export const UserName = styled.h1`
   text-align: center;
   display: block;
   width: 100%;
-  color: ${colors.black};
+  color: ${colors.text1};
 `
 
 export const TabWrapper = styled.div`

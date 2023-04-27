@@ -10,5 +10,7 @@ html {
 *:after {
   box-sizing: inherit;
 }
-/* TODO: Remove unused font weights */
 
+#root {
+  background-color: #EFF2F8 !important;
+}
