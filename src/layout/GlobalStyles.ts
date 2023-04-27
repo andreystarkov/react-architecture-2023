@@ -16,6 +16,6 @@ code {
 
 html, body, #root {
   height: 100vh;
-  background-color: ${colors.background}
+  background-color: ${colors.lightGray} !important;
 }
 `
